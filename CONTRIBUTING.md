@@ -33,7 +33,7 @@ Repo, checks, one more experiment and the final deliverables.
 |---|------|---------|:------:|
 | 1 | Repo setup | Private GitHub repo, push code, share with faculty and TAs | ❌ |
 | 2 | | LICENSE and CONTRIBUTING | ❌ |
-| 3 | | README: team names, SRNs and the problem statement number | ❌ |
+| 3 | | README: team names, SRNs and the problem statement number | ✅ |
 | 4 | Verification | Fresh setup from README and rerun every script | ❌ |
 | 5 | | Check rerun numbers against the tables in `results/` | ❌ |
 | 6 | | Compare our results and method with the reference paper | ❌ |

@@ -1,4 +1,4 @@
-# Predicting Bridge Performance under Earthquakes (Problem #24)
+# Predicting Bridge Performance under Earthquakes (Problem #27)
 
 UE24CS352A – Machine Learning mini-project. Binary classification: given a
 bridge's **age**, the earthquake's **magnitude** and the **distance to the
@@ -122,4 +122,11 @@ Full tables and plots are in `results/`.
 
 ## Team
 
-Team members / SRNs: _fill in_  ·  Problem statement #: 24
+UE24CS352A, Section C, Team 3, Problem statement #27
+
+| Name | SRN |
+|------|-----|
+| Guru R Bharadwaj | PES1UG24CS177 |
+| Chukkapalli Rohan | PES1UG24CS135 |
+
+Task split is in [CONTRIBUTING.md](CONTRIBUTING.md).
