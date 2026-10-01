@@ -21,6 +21,7 @@ pip install -r requirements.txt
 python train_evaluate.py --features core   # age, magnitude, distance (as in the report)
 python train_evaluate.py --features all    # + material and bridge type
 python train_multiclass.py                 # extension: damage LEVEL 1/2/3
+python grouped_split.py                    # test on earthquakes the model has never seen
 python predict.py --age 53 --mag 6.9 --dist 60
 python predict.py --age 53 --mag 6.9 --dist 60 --material steel --type beam_girder
 ```
@@ -39,6 +40,7 @@ src/data.py              loading, stratified split, bootstrap up-sampling
 src/models.py            model factories + CV selection of k
 train_evaluate.py        binary experiment (damaged / undamaged)
 train_multiclass.py      extension: damage level 1/2/3
+grouped_split.py         train/test split grouped by earthquake
 predict.py               CLI for the live demo
 results/                 generated metrics and figures
 ```
@@ -125,6 +127,34 @@ accuracy, while we pick k by F1 and scale the features first, which is the likel
 does much better on the damaged class here. The report does not say whether it resampled
 before or after splitting, so we cannot fully explain the gap for Logistic Regression.
 
+## Testing on unseen earthquakes
+
+All 21 damaged rows come from just 7 earthquakes (Alaska 1964, San Fernando 1971,
+Miyagi 1978, Loma Prieta 1989, Northridge 1994, Kobe 1995, Tohoku 2011), and every row
+from those events is labelled damaged. With a random split the model can see Northridge in
+training and then be tested on another Northridge row, which mostly checks whether it
+remembers the magnitude 6.7.
+
+`grouped_split.py` holds out whole earthquakes instead. In each of 100 runs it puts 2 of
+the 7 damaging earthquakes and 30 % of the other earthquake labels in the test set, so no
+event is in both. A few names were spelled two ways in the data (e.g. "1971, San Fernendo"
+and "1971 San Fernando"), so they are normalised before grouping. Up-sampling ratio is 0.5.
+
+| Model  | Split   | Test acc | Balanced acc | Recall (damaged) | Precision | F1    | AUC   |
+|--------|---------|----------|--------------|------------------|-----------|-------|-------|
+| LogReg | random  | 0.972    | 0.939        | 0.898            | 0.807     | 0.840 | 0.994 |
+| LogReg | grouped | 0.948    | 0.932        | 0.911            | 0.724     | 0.762 | 0.990 |
+| QDA    | random  | 0.968    | 0.926        | 0.875            | 0.781     | 0.816 | 0.993 |
+| QDA    | grouped | 0.964    | 0.920        | 0.867            | 0.794     | 0.800 | 0.994 |
+| KNN    | random  | 0.974    | 0.898        | 0.808            | 0.880     | 0.828 | 0.901 |
+| KNN    | grouped | 0.932    | 0.804        | 0.637            | 0.739     | 0.620 | 0.814 |
+
+KNN loses the most, which fits the idea that it was partly matching rows from the same
+event. Logistic Regression keeps its recall and AUC but raises more false alarms. QDA barely
+changes and is the best model on this stricter test, which agrees with the reference report's
+choice. With only 7 damaging events, two held out per run, these numbers still swing a lot
+from run to run.
+
 ## Limitations
 
 - Only 21 positives, so results vary a lot between splits.
@@ -133,9 +163,9 @@ before or after splitting, so we cannot fully explain the gap for Logistic Regre
   the classes easily (AUC ~0.99). Performance on typical new events would
   likely be lower.
 - Bootstrap resampling duplicates data; it does not add information.
-- The same earthquake appears in many rows, and our splits are random by row,
-  so train and test can contain records from the same event. This likely
-  inflates scores; a split grouped by earthquake would be a stricter test.
+- The same earthquake appears in many rows, so a random row split lets the
+  model see an event in training and then be tested on it. The grouped split
+  below measures how much this matters.
 - Our numbers differ from the reference report (e.g. its Logistic Regression
   test accuracy was 73.8 %). We did not trace the exact cause; our evaluation
   differs in the ways listed under Method.
