@@ -1,5 +1,5 @@
 bridge,earthquake,material,bridge_type,age_yr,magnitude,distance_miles,damaged,damage_level,note,location
-"San Francisco-Oakland Bay Bridge, 1936 ","1989, Loma Prieta",steel,cable,53.0,6.9,59.9,1,3,East portion partially collapsed,37¡ã49¡ä5¡åN 122¡ã20¡ä48¡åW
+"San Francisco-Oakland Bay Bridge, 1936 ","1989, Loma Prieta",steel,cable,53.0,6.9,59.9,1,3,East portion partially collapsed,37°49′5″N 122°20′48″W
 San Francisco-Oakland Bay Bridge,Northern California,steel,cable,57.0,4.7,50.0,0,1,,
 San Francisco-Oakland Bay Bridge,Bay Area,steel,cable,67.0,4.0,6.9,0,1,,
 San Francisco-Oakland Bay Bridge,1km N of Piedmont,steel,cable,79.0,4.0,6.3,0,1,,
@@ -12,7 +12,7 @@ San Francisco-Oakland Bay Bridge,Bay Area,steel,cable,50.0,4.1,8.8,0,1,,
 San Francisco-Oakland Bay Bridge,Bay Area,steel,cable,48.0,4.3,13.3,0,1,,
 San Francisco-Oakland Bay Bridge,Bay Area,steel,cable,44.0,5.8,29.0,0,1,,
 San Francisco-Oakland Bay Bridge,Offshore Northern California,steel,cable,21.0,5.7,32.0,0,1,,
-"Interstate 5 (Golden State Freeway), Gavin Canyon, 1947","1994, Northridge",concrete,beam_girder,15.0,6.7,11.1,1,3,Partially collapsed,"34¡ã 22' 18""N, 118¡ã 33' 23.3""Waa"
+"Interstate 5 (Golden State Freeway), Gavin Canyon, 1947","1994, Northridge",concrete,beam_girder,15.0,6.7,11.1,1,3,Partially collapsed,"34° 22' 18""N, 118° 33' 23.3""Waa"
 "Interstate 5 (Golden State Freeway), Gavin Canyon",5km NNW of Chatsworth,concrete,beam_girder,60.0,4.7,5.8,0,1,,
 "Interstate 5 (Golden State Freeway), Gavin Canyon",3km E of Pacoima,concrete,beam_girder,54.0,4.3,10.4,0,1,,
 "Interstate 5 (Golden State Freeway), Gavin Canyon",11km SW of Valencia,concrete,beam_girder,50.0,4.9,3.2,0,1,,
@@ -22,7 +22,7 @@ San Francisco-Oakland Bay Bridge,Offshore Northern California,steel,cable,21.0,5
 "Interstate 5 (Golden State Freeway), Gavin Canyon",10km SSW of Valencia,concrete,beam_girder,47.0,5.1,3.7,0,1,,
 "Interstate 5 (Golden State Freeway), Gavin Canyon",3km NNE of Granada Hills,concrete,beam_girder,24.0,4.2,6.1,0,1,,
 "Interstate 5 (Golden State Freeway), Gavin Canyon",1km S of San Fernando,concrete,beam_girder,17.0,3.8,9.5,0,1,,
-"Interstate 10 (over La Cienega Boulevard), 1957","1994, Northridge",concrete,beam_girder,37.0,6.7,15.2,1,3,Partially collapsed,"34¡ã02'12.5"" 118¡ã22'39.2""We"
+"Interstate 10 (over La Cienega Boulevard), 1957","1994, Northridge",concrete,beam_girder,37.0,6.7,15.2,1,3,Partially collapsed,"34°02'12.5"" 118°22'39.2""We"
 Interstate 10 (over La Cienega Boulevard),2km ESE of Lennox,concrete,beam_girder,62.0,4.0,7.6,0,1,,
 Interstate 10 (over La Cienega Boulevard),3km WNW of Panorama,concrete,beam_girder,47.0,5.2,14.5,0,1,,
 Interstate 10 (over La Cienega Boulevard),4km WSW of Northridge,concrete,beam_girder,47.0,4.6,17.3,0,1,,
@@ -32,7 +32,7 @@ Interstate 10 (over La Cienega Boulevard),2km SSW of Rosemead,concrete,beam_gird
 Interstate 10 (over La Cienega Boulevard),4km SW of Lake View,concrete,beam_girder,24.0,4.6,14.3,0,1,,
 Interstate 10 (over La Cienega Boulevard),1km S of San Fernando,concrete,beam_girder,17.0,3.8,16.7,0,1,,
 Interstate 10 (over La Cienega Boulevard),1km ENE of Lennox,concrete,beam_girder,16.0,3.5,7.0,0,1,,
-"Interstate 405 (over Jefferson Boulevard), 1964","1994, Northridge",concrete,beam_girder,30.0,6.7,17.5,1,2,Hinge and crack formation,"33¡ã59'15.7"" 118¡ã23'57.3""Ws"
+"Interstate 405 (over Jefferson Boulevard), 1964","1994, Northridge",concrete,beam_girder,30.0,6.7,17.5,1,2,Hinge and crack formation,"33°59'15.7"" 118°23'57.3""Ws"
 Interstate 405 (over Jefferson Boulevard),5km NW of Westwood,concrete,beam_girder,53.0,3.6,8.0,0,1,,
 Interstate 405 (over Jefferson Boulevard),2km NE of Pico Rivera,concrete,beam_girder,46.0,4.4,18.1,0,1,,
 Interstate 405 (over Jefferson Boulevard),3km WNW of Panorama,concrete,beam_girder,30.0,5.2,17.4,0,1,,
@@ -42,12 +42,12 @@ Interstate 405 (over Jefferson Boulevard),1km SSE of Pasadena,concrete,beam_gird
 Interstate 405 (over Jefferson Boulevard),3km ESE of Monterey,concrete,beam_girder,23.0,4.6,18.1,0,1,,
 Interstate 405 (over Jefferson Boulevard),4km SW of Lake View,concrete,beam_girder,7.0,4.6,17.6,0,1,,
 Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_girder,2.0,3.5,4.7,0,1,,
-"Interstate 5, Antelope Valley Freeway, 1947","1994, Northridge",concrete,beam_girder,15.0,6.7,8.5,1,3,Partially collapsed,"34¡ã20'08.0"" 118¡ã30'28.7""We"
+"Interstate 5, Antelope Valley Freeway, 1947","1994, Northridge",concrete,beam_girder,15.0,6.7,8.5,1,3,Partially collapsed,"34°20'08.0"" 118°30'28.7""We"
 "Interstate 5, Antelope Valley Freeway",2km NW of Brea,concrete,beam_girder,50.0,5.1,43.8,0,1,,
 "Interstate 5, Antelope Valley Freeway",12km ESE of Piru,concrete,beam_girder,33.0,5.1,17.1,0,1,,
 "Interstate 5, Antelope Valley Freeway",6km NNE of Chatsworth,concrete,beam_girder,30.0,5.1,4.9,0,1,,
 "Interstate 5, Antelope Valley Freeway",6km NNE of Pacoima,concrete,beam_girder,7.0,4.0,5.6,0,1,,
-"State Route 134 (Ventura Freeway), US 101, 1971","1994, Northridge",concrete,beam_girder,23.0,6.7,10.1,1,2,Bearing damage,"34¡ã09'14.4"" 118¡ã22'37.0""We"
+"State Route 134 (Ventura Freeway), US 101, 1971","1994, Northridge",concrete,beam_girder,23.0,6.7,10.1,1,2,Bearing damage,"34°09'14.4"" 118°22'37.0""We"
 "State Route 134 (Ventura Freeway), US 101",4km N of La Verne,concrete,beam_girder,47.0,4.4,34.5,0,1,,
 "State Route 134 (Ventura Freeway), US 101",2KM NE of Pico Rivera,concrete,beam_girder,39.0,4.4,20.2,0,1,,
 "State Route 134 (Ventura Freeway), US 101",5km S of Chino Hills,concrete,beam_girder,37.0,5.4,37.8,0,1,,
@@ -56,7 +56,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "State Route 134 (Ventura Freeway), US 101",10km ESE of Piru,concrete,beam_girder,23.0,5.2,44.9,0,1,,
 "State Route 134 (Ventura Freeway), US 101",1km WSW of East LA,concrete,beam_girder,18.0,4.8,14.3,0,1,,
 "State Route 134 (Ventura Freeway), US 101",2km SSW of Rosemead,concrete,beam_girder,16.0,5.9,20.4,0,1,,
-"Interstate 5 (Palmdale interchange, California 14), 1947","1971, San Fernendo",concrete,beam_girder,24.0,6.6,7.2,1,3,Partially collapsed,"34¡ã20'07.9"" 118¡ã30'29.7""Wr"
+"Interstate 5 (Palmdale interchange, California 14), 1947","1971, San Fernendo",concrete,beam_girder,24.0,6.6,7.2,1,3,Partially collapsed,"34°20'07.9"" 118°30'29.7""Wr"
 "Interstate 5 (Palmdale interchange, California 14), 1947",4km SSW of Palmdale,concrete,beam_girder,22.0,4.4,26.7,0,1,,
 "Interstate 5 (Palmdale interchange, California 14), 1947",8km ESE of Piru,concrete,beam_girder,47.0,5.1,33.4,0,1,,
 "Interstate 5 (Palmdale interchange, California 14), 1947",8km N of Castaic,concrete,beam_girder,9.0,4.1,17.1,0,1,,
@@ -67,7 +67,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Interstate 5 (Palmdale interchange, California 14), 1947",7km NE of Lake View,concrete,beam_girder,24.0,3.9,10.9,0,1,,
 "Interstate 5 (Palmdale interchange, California 14), 1947",2km NW of Sunland,concrete,beam_girder,24.0,4.0,11.3,0,1,,
 "Interstate 5 (Palmdale interchange, California 14), 1947",5km N of Pacoima,concrete,beam_girder,47.0,4.5,3.5,0,1,,
-"Interstate 5 (Foothill freeway interchange), 1947",1971 San Fernando,concrete,beam_girder,24.0,6.6,5.8,1,3,Partially collapsed,"34¡ã18'56.0"" 118¡ã29'24.2""Ww"
+"Interstate 5 (Foothill freeway interchange), 1947",1971 San Fernando,concrete,beam_girder,24.0,6.6,5.8,1,3,Partially collapsed,"34°18'56.0"" 118°29'24.2""Ww"
 "Interstate 5 (Foothill freeway interchange), 1947",12km N of Bradbury,concrete,beam_girder,44.0,4.0,16.2,0,1,,
 "Interstate 5 (Foothill freeway interchange), 1947",1km S of San Fernando,concrete,beam_girder,17.0,3.8,4.3,0,1,,
 "Interstate 5 (Foothill freeway interchange), 1947",10km SSW of Valencia,concrete,beam_girder,47.0,5.1,8.2,0,1,,
@@ -77,7 +77,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Interstate 5 (Foothill freeway interchange), 1947",2km SSE of Fillmore,concrete,beam_girder,3.0,3.9,24.5,0,1,,
 "Interstate 5 (Foothill freeway interchange), 1947",6km SW of Valencia,concrete,beam_girder,47.0,3.9,9.7,0,1,,
 "Interstate 5 (Foothill freeway interchange), 1947",7km N of Pacoima,concrete,beam_girder,24.0,4.2,4.1,0,1,,
-"I-880 Cypress Street Viaduct, 1930",1989 Loma Prieta,concrete,beam_girder,32.0,6.9,58.9,1,3,Bent collapse,"37¡ã49'12.5"" 122¡ã17'36.3""Wt"
+"I-880 Cypress Street Viaduct, 1930",1989 Loma Prieta,concrete,beam_girder,32.0,6.9,58.9,1,3,Bent collapse,"37°49'12.5"" 122°17'36.3""Wt"
 "I-880 Cypress Street Viaduct, 1930",Bay Area,concrete,beam_girder,77.0,4.2,11.2,0,1,,
 "I-880 Cypress Street Viaduct, 1930",North California,concrete,beam_girder,25.0,5.8,44.5,0,1,,
 "I-880 Cypress Street Viaduct, 1930",North California,concrete,beam_girder,58.0,5.3,52.6,0,1,,
@@ -88,7 +88,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "I-880 Cypress Street Viaduct, 1930",South Napa,concrete,beam_girder,84.0,6.0,27.2,0,1,,
 "I-880 Cypress Street Viaduct, 1930",Bay Area,concrete,beam_girder,59.0,4.3,28.6,0,1,,
 "I-880 Cypress Street Viaduct, 1930",Northern California,concrete,beam_girder,54.0,6.2,48.1,0,1,,
-"Struve Slough Bridge, 1964",1989 Loma Prieta,concrete,beam_girder,25.0,6.9,10.4,1,3,Partial collapse,"36¡ã54'26.5"" 121¡ã46'56.7""Wt"
+"Struve Slough Bridge, 1964",1989 Loma Prieta,concrete,beam_girder,25.0,6.9,10.4,1,3,Partial collapse,"36°54'26.5"" 121°46'56.7""Wt"
 "Struve Slough Bridge, 1964",Central California,concrete,beam_girder,27.0,5.2,80.6,0,1,,
 "Struve Slough Bridge, 1964",3km WNW of Prunedale,concrete,beam_girder,5.0,4.3,9.4,0,1,,
 "Struve Slough Bridge, 1964",Northern California,concrete,beam_girder,22.0,5.7,23.2,0,1,,
@@ -99,7 +99,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Struve Slough Bridge, 1964",8km N of Cholame,concrete,beam_girder,2.0,5.5,112.9,0,1,,
 "Struve Slough Bridge, 1964",Northern California,concrete,beam_girder,10.0,3.7,14.0,0,1,,
 "Struve Slough Bridge, 1964",Central California,concrete,beam_girder,22.0,5.5,28.0,0,1,,
-"Miles Glacier Bridge, 1910",1964 Alaska,steel,truss,54.0,9.2,89.0,1,3,,60¡ã40¡ä24¡åN 144¡ã44¡ä35¡åW
+"Miles Glacier Bridge, 1910",1964 Alaska,steel,truss,54.0,9.2,89.0,1,3,,60°40′24″N 144°44′35″W
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,69.0,7.1,107.0,0,1,,
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,24.0,6.9,116.9,0,1,,
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,60.0,6.0,28.9,0,1,,
@@ -114,7 +114,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,63.0,3.6,54.2,0,1,,
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,68.0,4.3,87.7,0,1,,
 "Miles Glacier Bridge, 1910",Southern Alaska,steel,truss,64.0,4.7,57.2,0,1,,
-"Nishinomiyako Bridge, 1994","1995, Kobe",steel,arch,1.0,6.9,17.7,1,3,Partial collapse,"34¡ã42'51.24"", 135¡ã20'29.85""11"
+"Nishinomiyako Bridge, 1994","1995, Kobe",steel,arch,1.0,6.9,17.7,1,3,Partial collapse,"34°42'51.24"", 135°20'29.85""11"
 "Nishinomiyako Bridge, 1994",Coast of Western Honshu,steel,arch,19.0,4.4,18.3,0,1,,
 "Nishinomiyako Bridge, 1994",Coast of Western Honshu,steel,arch,14.0,4.2,7.9,0,1,,
 "Nishinomiyako Bridge, 1994",Coast of Western Honshu,steel,arch,11.0,3.9,7.9,0,1,,
@@ -129,7 +129,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Nishinomiyako Bridge, 1994",Coast of Western Honshu,steel,arch,16.0,4.9,31.9,0,1,,
 "Nishinomiyako Bridge, 1994",Coast of Western Honshu,steel,arch,11.0,3.8,26.0,0,1,,
 "Nishinomiyako Bridge, 1994",9km NNE of Himeji,steel,arch,19.0,4.2,37.0,0,1,,
-"Rokko Island Bridge, 1993","1995, Kobe",steel,arch,2.0,6.9,13.9,1,2,,"34¡ã42'1.23"", 135¡ã16'23.98""E1"
+"Rokko Island Bridge, 1993","1995, Kobe",steel,arch,2.0,6.9,13.9,1,2,,"34°42'1.23"", 135°16'23.98""E1"
 "Rokko Island Bridge, 1993",1km NW of Hirakata,steel,arch,25.0,5.5,22.5,0,1,,
 "Rokko Island Bridge, 1993",3km ESE of Hirakata,steel,arch,21.0,4.0,24.5,0,1,,
 "Rokko Island Bridge, 1993",2km NNW of Neyagawa,steel,arch,25.0,4.6,20.1,0,1,,
@@ -218,7 +218,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Tennoh Bridge, 1959",East Coast of Honshu,steel,beam_girder,9.0,6.3,46.5,0,1,,
 "Tennoh Bridge, 1959",East Coast of Honshu,steel,beam_girder,13.0,5.7,46.5,0,1,,
 "Tennoh Bridge, 1959",East Coast of Honshu,steel,beam_girder,15.0,4.7,41.2,0,1,,
-"Sendai-Tobu Interchange, 1994","2011, Tohoku",steel,beam_girder,17.0,9.1,75.9,1,2,,"38¡ã15'53.1"" 140¡ã58'19.7""E9"
+"Sendai-Tobu Interchange, 1994","2011, Tohoku",steel,beam_girder,17.0,9.1,75.9,1,2,,"38°15'53.1"" 140°58'19.7""E9"
 "Sendai-Tobu Interchange, 1994",East Coast of Honshu,steel,beam_girder,10.0,4.6,4.9,0,1,,
 "Sendai-Tobu Interchange, 1994",Eastern Honshu,steel,beam_girder,9.0,6.1,10.5,0,1,,
 "Sendai-Tobu Interchange, 1994",East Coast of Honshu,steel,beam_girder,9.0,5.5,11.7,0,1,,
@@ -233,7 +233,7 @@ Interstate 405 (over Jefferson Boulevard),3km ESE of View Park,concrete,beam_gir
 "Sendai-Tobu Interchange, 1994",East Coast of Honshu,steel,beam_girder,17.0,7.3,102.0,0,1,,
 "Sendai-Tobu Interchange, 1994",East Coast of Honshu,steel,beam_girder,9.0,7.0,94.9,0,1,,
 "Sendai-Tobu Interchange, 1994",East Coast of Honshu,steel,beam_girder,14.0,7.0,83.7,0,1,,
-"Abukuma Bridge (Route 6), 1920","1978, Miyagi",steel,beam_girder,58.0,7.7,63.3,1,2,,"38¡ã06'02.1"" 140¡ã52'12.8""E9"
+"Abukuma Bridge (Route 6), 1920","1978, Miyagi",steel,beam_girder,58.0,7.7,63.3,1,2,,"38°06'02.1"" 140°52'12.8""E9"
 "Abukuma Bridge (Route 6), 1920",Eastern Honshu,steel,beam_girder,54.0,4.3,2.5,0,1,,
 "Abukuma Bridge (Route 6), 1920",East Coast of Honshu,steel,beam_girder,55.0,5.1,20.9,0,1,,
 "Abukuma Bridge (Route 6), 1920",Eastern Honshu,steel,beam_girder,36.0,5.9,14.1,0,1,,
