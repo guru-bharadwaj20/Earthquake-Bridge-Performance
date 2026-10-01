@@ -78,14 +78,14 @@ bridges, assuming "no recorded damage = undamaged". Source: Jiang & Zhang,
 |--------|----------|--------------|------------------|-----------|-------|-------|
 | LogReg | 0.972    | 0.942        | 0.906            | 0.803     | 0.841 | 0.994 |
 | QDA    | 0.969    | 0.925        | 0.873            | 0.793     | 0.819 | 0.992 |
-| KNN    | 0.972    | 0.895        | 0.802            | 0.868     | 0.817 | 0.906 |
+| KNN    | 0.973    | 0.896        | 0.804            | 0.874     | 0.821 | 0.906 |
 
 **Binary, all features (+ material, bridge type)**
 
 | Model  | Test acc | Balanced acc | Recall (damaged) | Precision | F1    | AUC   |
 |--------|----------|--------------|------------------|-----------|-------|-------|
 | LogReg | 0.974    | 0.934        | 0.886            | 0.833     | 0.849 | 0.988 |
-| QDA    | 0.968    | 0.907        | 0.834            | 0.803     | 0.804 | 0.986 |
+| QDA    | 0.968    | 0.906        | 0.833            | 0.802     | 0.803 | 0.986 |
 | KNN    | 0.955    | 0.800        | 0.616            | 0.801     | 0.672 | 0.803 |
 
 Adding material and bridge type gives no clear gain for Logistic Regression
@@ -99,7 +99,7 @@ precision (KNN improves on both).
 | Model  | Accuracy | Macro-F1 | Recall L1 | Recall L2 | Recall L3 |
 |--------|----------|----------|-----------|-----------|-----------|
 | LogReg | 0.936    | 0.662    | 0.966     | 0.630     | 0.550     |
-| QDA    | 0.927    | 0.621    | 0.962     | 0.553     | 0.513     |
+| QDA    | 0.927    | 0.622    | 0.962     | 0.553     | 0.513     |
 | KNN    | 0.923    | 0.554    | 0.971     | 0.357     | 0.380     |
 
 With only 11 and 10 examples in levels 2 and 3, these numbers are noisy.
