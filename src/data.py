@@ -37,3 +37,18 @@ def bootstrap_balance(X, y, rng, ratio=1.0):
         idx.append(ci if c == classes[np.argmax(counts)] else rng.choice(ci, target, replace=True))
     idx = np.concatenate(idx); rng.shuffle(idx)
     return X[idx], y[idx]
+
+
+def quake_groups(path="data/bridge_data.csv"):
+    e = pd.read_csv(path).earthquake.str.strip().str.lower()
+    e = e.str.replace(",", "").str.replace("fernendo", "fernando")
+    return e.str.replace(r"\s+", " ", regex=True).values
+
+
+def group_split(y, groups, rng, n_pos_events=2, neg_frac=0.3):
+    pos_ev = np.unique(groups[y == 1])
+    neg_ev = np.setdiff1d(np.unique(groups), pos_ev)
+    test_ev = np.concatenate([rng.choice(pos_ev, n_pos_events, replace=False),
+                              rng.choice(neg_ev, int(round(neg_frac * len(neg_ev))), replace=False)])
+    te = np.isin(groups, test_ev)
+    return np.where(~te)[0], np.where(te)[0]
