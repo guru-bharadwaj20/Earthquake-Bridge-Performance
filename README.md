@@ -33,6 +33,8 @@ Each binary run does 100 random splits x 3 resampling ratios (~1 min). Use
 
 ```
 data/bridge_data.csv     249 records, all columns from the source table
+data/raw/ds2_original.csv  untouched copy of ds2.csv from the reference repo
+sources/                 reference paper, poster and assignment guidelines
 src/data.py              loading, stratified split, bootstrap up-sampling
 src/models.py            model factories + CV selection of k
 train_evaluate.py        binary experiment (damaged / undamaged)
@@ -104,6 +106,24 @@ precision (KNN improves on both).
 
 With only 11 and 10 examples in levels 2 and 3, these numbers are noisy.
 Full tables and plots are in `results/`.
+
+## Comparison with the reference report
+
+We checked `data/bridge_data.csv` against the original `ds2.csv` row by row. All 249
+rows match on age, magnitude, distance and labels, and the Roman numeral codes map to
+material, bridge type and damage level as described in the notes at the bottom of that file.
+
+| Model  | Report test acc | Report acc on damaged | Our test acc | Our recall on damaged |
+|--------|-----------------|-----------------------|--------------|-----------------------|
+| LogReg | 0.738           | 0.827                 | 0.972        | 0.906                 |
+| QDA    | 0.948           | 0.995                 | 0.969        | 0.873                 |
+| KNN    | 0.806           | 0.299                 | 0.973        | 0.804                 |
+
+The report picks QDA as the best model. In our runs QDA and Logistic Regression are close,
+with Logistic Regression slightly ahead on F1 and AUC. The report also picks k = 2 for KNN by
+accuracy, while we pick k by F1 and scale the features first, which is the likely reason KNN
+does much better on the damaged class here. The report does not say whether it resampled
+before or after splitting, so we cannot fully explain the gap for Logistic Regression.
 
 ## Limitations
 

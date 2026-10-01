@@ -36,7 +36,7 @@ Repo, checks, one more experiment and the final deliverables.
 | 3 | | README: team names, SRNs and the problem statement number | ✅ |
 | 4 | Verification | Fresh setup from README and rerun every script | ✅ |
 | 5 | | Check rerun numbers against the tables in `results/` | ✅ |
-| 6 | | Compare our results and method with the reference paper | ❌ |
+| 6 | | Compare our results and method with the reference paper | ✅ |
 | 7 | Grouped split | Split train/test by earthquake so no event appears in both | ❌ |
 | 8 | | Rerun the three models and compare with the random split | ❌ |
 | 9 | | Add the table and a short note to the README | ❌ |
