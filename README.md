@@ -43,6 +43,7 @@ train_multiclass.py      extension: damage level 1/2/3
 grouped_split.py         train/test split grouped by earthquake
 predict.py               CLI for the live demo
 results/                 generated metrics and figures
+docs/                    write-up (PDF) and review slides
 ```
 
 ## Dataset

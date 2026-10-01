@@ -41,7 +41,7 @@ Repo, checks, one more experiment and the final deliverables.
 | 8 | | Rerun the three models and compare with the random split | ✅ |
 | 9 | | Add the table and a short note to the README | ✅ |
 | 10 | Write-up | Two page PDF: problem, dataset, approach, implementation, conclusions | ✅ |
-| 11 | Slides | Deck for the review using the results and plots | ❌ |
+| 11 | Slides | Deck for the review using the results and plots | ✅ |
 | 12 | Review | Present the slides and take the Q&A on results and limitations | ❌ |
 
 ## Workflow
