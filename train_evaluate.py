@@ -13,6 +13,7 @@ from src.models import make_knn, make_logreg, make_qda, select_k
 
 
 def main():
+    # Parse experiment settings
     ap = argparse.ArgumentParser()
     ap.add_argument("--runs", type=int, default=100)
     ap.add_argument("--ratios", type=float, nargs="+", default=[0.2, 0.5, 1.0])
@@ -20,69 +21,162 @@ def main():
     ap.add_argument("--features", choices=["core", "all"], default="core",
                     help="core = age/magnitude/distance; all = + material + bridge type")
     a = ap.parse_args()
-    os.makedirs("results", exist_ok=True); os.makedirs("models", exist_ok=True)
 
+    # Create folders for results and trained models
+    os.makedirs("results", exist_ok=True)
+    os.makedirs("models", exist_ok=True)
+
+    # Load dataset and selected features
     X, y, names = load_data(a.data, a.features)
     print(f"features: {names}")
     print(f"{len(y)} samples, {y.sum()} damaged ({y.mean():.1%})")
 
+    # Run models for each resampling ratio and random split
     rows = []
     for ratio in a.ratios:
         for run in range(a.runs):
             rng = np.random.default_rng(run)
             Xtr, Xte, ytr, yte = split(X, y, seed=run)
+
+            # Upsample the damaged class in the training set
             Xb, yb = bootstrap_upsample(Xtr, ytr, ratio, rng)
+
+            # Select the best K value for KNN
             k, _ = select_k(Xb, yb, seed=run)
-            for name, m in [("LogReg", make_logreg()), ("QDA", make_qda()),
-                            ("KNN", make_knn(k))]:
+
+            # Train and evaluate all three models
+            for name, m in [
+                ("LogReg", make_logreg()),
+                ("QDA", make_qda()),
+                ("KNN", make_knn(k))
+            ]:
                 m.fit(Xb, yb)
                 p, s = m.predict(Xte), m.predict_proba(Xte)[:, 1]
+
                 rows.append(dict(
-                    model=name, ratio=ratio, run=run, k=k if name == "KNN" else np.nan,
+                    model=name,
+                    ratio=ratio,
+                    run=run,
+                    k=k if name == "KNN" else np.nan,
                     train_acc=(m.predict(Xb) == yb).mean(),
                     test_acc=(p == yte).mean(),
                     balanced_acc=balanced_accuracy_score(yte, p),
                     recall_pos=recall_score(yte, p),
                     precision=precision_score(yte, p, zero_division=0),
-                    f1=f1_score(yte, p), auc=roc_auc_score(yte, s)))
+                    f1=f1_score(yte, p),
+                    auc=roc_auc_score(yte, s)
+                ))
+
         print(f"ratio {ratio} done")
 
-    df = pd.DataFrame(rows); df.to_csv(f"results/metrics_{a.features}.csv", index=False)
-    cols = ["train_acc", "test_acc", "balanced_acc", "recall_pos", "precision", "f1", "auc"]
+    # Save all individual run results
+    df = pd.DataFrame(rows)
+    df.to_csv(f"results/metrics_{a.features}.csv", index=False)
+
+    cols = [
+        "train_acc", "test_acc", "balanced_acc",
+        "recall_pos", "precision", "f1", "auc"
+    ]
+
+    # Calculate average performance for each model and ratio
     summ = df.groupby(["model", "ratio"])[cols].mean().round(3)
     overall = df.groupby("model")[cols].mean().round(3)
-    with open(f"results/summary_{a.features}.md", "w") as f:
-        f.write("## Mean over all runs, by model\n\n" + overall.to_markdown() + "\n\n")
-        f.write("## By model and #pos/#neg ratio\n\n" + summ.to_markdown() + "\n")
-    print(overall.to_string()); print(); print(summ.to_string())
 
+    # Save summary tables as Markdown
+    with open(f"results/summary_{a.features}.md", "w") as f:
+        f.write(
+            "## Mean over all runs, by model\n\n"
+            + overall.to_markdown() + "\n\n"
+        )
+        f.write(
+            "## By model and #pos/#neg ratio\n\n"
+            + summ.to_markdown() + "\n"
+        )
+
+    print(overall.to_string())
+    print()
+    print(summ.to_string())
+
+    # Plot performance metrics against the resampling ratio
     fig, ax = plt.subplots(1, 3, figsize=(13, 3.8))
-    for a_, col, t in zip(ax, ["test_acc", "recall_pos", "f1"],
-                          ["Test accuracy", "Recall (damaged class)", "F1 (damaged class)"]):
+    for a_, col, t in zip(
+        ax,
+        ["test_acc", "recall_pos", "f1"],
+        ["Test accuracy", "Recall (damaged class)", "F1 (damaged class)"]
+    ):
         for n in df.model.unique():
             g = df[df.model == n].groupby("ratio")[col].mean()
             a_.plot(g.index, g.values, marker="o", label=n)
-        a_.set_xlabel("#pos/#neg after resampling"); a_.set_title(t); a_.grid(alpha=.3)
-    ax[0].legend(); plt.tight_layout(); plt.savefig(f"results/metrics_vs_ratio_{a.features}.png", dpi=150)
 
+        a_.set_xlabel("#pos/#neg after resampling")
+        a_.set_title(t)
+        a_.grid(alpha=.3)
+
+    ax[0].legend()
+    plt.tight_layout()
+    plt.savefig(
+        f"results/metrics_vs_ratio_{a.features}.png",
+        dpi=150
+    )
+
+    # Compare ROC-AUC distributions across repeated runs
     plt.figure(figsize=(5, 4))
-    plt.boxplot([df[df.model == n].auc for n in df.model.unique()],
-                tick_labels=list(df.model.unique())); plt.ylabel("Test ROC-AUC")
-    plt.title("AUC across runs"); plt.tight_layout()
-    plt.savefig(f"results/auc_boxplot_{a.features}.png", dpi=150)
+    plt.boxplot(
+        [df[df.model == n].auc for n in df.model.unique()],
+        tick_labels=list(df.model.unique())
+    )
+    plt.ylabel("Test ROC-AUC")
+    plt.title("AUC across runs")
+    plt.tight_layout()
+    plt.savefig(
+        f"results/auc_boxplot_{a.features}.png",
+        dpi=150
+    )
 
+    # Visualize damaged and undamaged samples by magnitude and distance
     plt.figure(figsize=(5.5, 4.5))
-    plt.scatter(X[y == 0, 1], X[y == 0, 2], s=12, c="tab:blue", label="undamaged")
-    plt.scatter(X[y == 1, 1], X[y == 1, 2], s=25, c="tab:red", label="damaged")
-    plt.xlabel("Earthquake magnitude"); plt.ylabel("Distance to epicentre (miles)")
-    plt.legend(); plt.title("Dataset"); plt.tight_layout()
+    plt.scatter(
+        X[y == 0, 1],
+        X[y == 0, 2],
+        s=12,
+        c="tab:blue",
+        label="undamaged"
+    )
+    plt.scatter(
+        X[y == 1, 1],
+        X[y == 1, 2],
+        s=25,
+        c="tab:red",
+        label="damaged"
+    )
+    plt.xlabel("Earthquake magnitude")
+    plt.ylabel("Distance to epicentre (miles)")
+    plt.legend()
+    plt.title("Dataset")
+    plt.tight_layout()
     plt.savefig("results/data_scatter.png", dpi=150)
 
+    # Select the model with the highest average F1 score
     best = df.groupby("model").f1.mean().idxmax()
-    Xb, yb = bootstrap_upsample(X, y, 0.5, np.random.default_rng(0))
+
+    # Train the selected model on the complete dataset
+    Xb, yb = bootstrap_upsample(
+        X, y, 0.5, np.random.default_rng(0)
+    )
     k, _ = select_k(Xb, yb)
-    final = {"LogReg": make_logreg(), "QDA": make_qda(), "KNN": make_knn(k)}[best].fit(Xb, yb)
-    joblib.dump({"model": final, "name": best, "features": names}, f"models/bridge_model_{a.features}.joblib")
+
+    final = {
+        "LogReg": make_logreg(),
+        "QDA": make_qda(),
+        "KNN": make_knn(k)
+    }[best].fit(Xb, yb)
+
+    # Save the final trained model for later predictions
+    joblib.dump(
+        {"model": final, "name": best, "features": names},
+        f"models/bridge_model_{a.features}.joblib"
+    )
+
     print(f"\nSaved best model by F1: {best}")
 
 
