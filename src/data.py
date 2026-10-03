@@ -5,7 +5,6 @@ from sklearn.model_selection import train_test_split
 CORE = ["age_yr", "magnitude", "distance_miles"]
 TARGET = "damaged"
 
-
 def load_data(path="data/bridge_data.csv", features="core", target=TARGET):
     df = pd.read_csv(path)
     X = df[CORE].copy()
@@ -15,10 +14,8 @@ def load_data(path="data/bridge_data.csv", features="core", target=TARGET):
             X[f"type_{t}"] = (df.bridge_type == t).astype(int)
     return X.values.astype(float), df[target].values, list(X.columns)
 
-
 def split(X, y, test_size=0.3, seed=0):
     return train_test_split(X, y, test_size=test_size, stratify=y, random_state=seed)
-
 
 def bootstrap_upsample(X, y, ratio, rng):
     pos, neg = np.where(y == 1)[0], np.where(y == 0)[0]
@@ -26,7 +23,6 @@ def bootstrap_upsample(X, y, ratio, rng):
     idx = np.concatenate([neg, rng.choice(pos, size=n_pos, replace=True)])
     rng.shuffle(idx)
     return X[idx], y[idx]
-
 
 def bootstrap_balance(X, y, rng, ratio=1.0):
     classes, counts = np.unique(y, return_counts=True)
@@ -38,12 +34,10 @@ def bootstrap_balance(X, y, rng, ratio=1.0):
     idx = np.concatenate(idx); rng.shuffle(idx)
     return X[idx], y[idx]
 
-
 def quake_groups(path="data/bridge_data.csv"):
     e = pd.read_csv(path).earthquake.str.strip().str.lower()
     e = e.str.replace(",", "").str.replace("fernendo", "fernando")
     return e.str.replace(r"\s+", " ", regex=True).values
-
 
 def group_split(y, groups, rng, n_pos_events=2, neg_frac=0.3):
     pos_ev = np.unique(groups[y == 1])
