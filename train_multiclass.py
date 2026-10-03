@@ -10,7 +10,6 @@ from sklearn.metrics import confusion_matrix, f1_score, recall_score
 from src.data import bootstrap_balance, load_data, split
 from src.models import make_knn, make_logreg, make_qda
 
-
 # Parse experiment settings
 ap = argparse.ArgumentParser()
 ap.add_argument("--runs", type=int, default=100)
@@ -25,7 +24,6 @@ print(
     f"features: {names}; "
     f"class counts: {dict(zip(*np.unique(y, return_counts=True)))}"
 )
-
 
 # Store metrics and combined confusion matrices
 rows, cms = [], {}
@@ -78,7 +76,6 @@ for run in range(a.runs):
             labels=[1, 2, 3]
         )
 
-
 # Calculate average performance across all runs
 df = pd.DataFrame(rows)
 summ = df.groupby("model").mean().round(3)
@@ -87,7 +84,6 @@ summ.to_markdown(
     f"results/multiclass_summary_{a.features}.md"
 )
 print(summ.to_string())
-
 
 # Plot normalized confusion matrices for each model
 fig, ax = plt.subplots(1, 3, figsize=(11, 3.6))
@@ -117,7 +113,6 @@ for a_, (n, cm) in zip(ax, cms.items()):
     a_.set_title(n)
     a_.set_xlabel("predicted level")
     a_.set_ylabel("true level")
-
 
 # Save the combined confusion matrix figure
 fig.suptitle(
