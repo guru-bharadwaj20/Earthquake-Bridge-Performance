@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```bash
 python train_evaluate.py --features core   # age, magnitude, distance (as in the report)
 python train_evaluate.py --features all    # + material and bridge type
-python train_multiclass.py                 # extension: damage LEVEL 1/2/3
+python train_multiclass.py                 # extension: damage_LEVEL 1/2/3
 python grouped_split.py                    # test on earthquakes the model has never seen
 python predict.py --age 53 --mag 6.9 --dist 60
 python predict.py --age 53 --mag 6.9 --dist 60 --material steel --type beam_girder
