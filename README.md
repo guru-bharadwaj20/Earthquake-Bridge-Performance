@@ -180,4 +180,3 @@ UE24CS352A, Section C, Team 3, Problem statement #27
 | Guru R Bharadwaj | PES1UG24CS177 |
 | Chukkapalli Rohan | PES1UG24CS135 |
 
-Task split is in [CONTRIBUTING.md](CONTRIBUTING.md).
