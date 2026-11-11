@@ -1,5 +1,13 @@
 # Predicting Bridge Performance under Earthquakes
 
+<p align="center">
+  <a href="Earthquake-Bridge-Performance%20Demo.mp4">
+    <img src="docs/Earthquake-Bridge-Performance%20Demo%20thumbnail.png" alt="Watch the Earthquake-Bridge-Performance demo video" width="720">
+  </a>
+  <br>
+  <sub>▶ <b><a href="Earthquake-Bridge-Performance%20Demo.mp4">Watch the Earthquake-Bridge-Performance demo</a></b> (90 s): the README quick start on a fresh clone with all four experiments re-run (every README table matches), then the review deck and the demo CLI, checked against the data</sub>
+</p>
+
 **Will this bridge be damaged? Age, magnitude and distance to the epicentre — and an honest test on earthquakes the model has never seen.**
 
 [![Python](https://img.shields.io/badge/Python-3-3776AB?logo=python&logoColor=white)](requirements.txt)
